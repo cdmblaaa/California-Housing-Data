@@ -35,7 +35,7 @@ else:
 
 
 df = df[df.ocean_proximity.isin(location_filter)]
-df = df[df.median_house_value >= price_filter]
+df = df[df.median_house_value <= price_filter]
 
 
 st.map(df)
@@ -45,7 +45,7 @@ st.map(df)
 st.subheader('Histogram of the Median House Value')
 fig, ax = plt.subplots()
 ax.hist(df.median_house_value,bins = 30)
-plt.xlim =([ 0, price_filter])
+#plt.xlim =([ 0, price_filter])
 st.pyplot(fig)
 
 
